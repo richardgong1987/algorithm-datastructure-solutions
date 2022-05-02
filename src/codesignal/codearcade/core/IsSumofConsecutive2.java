@@ -1,4 +1,4 @@
-package codesignal.graphs;
+package codesignal.codearcade.core;
 
 public class IsSumofConsecutive2 {
     public static void main(String[] args) {

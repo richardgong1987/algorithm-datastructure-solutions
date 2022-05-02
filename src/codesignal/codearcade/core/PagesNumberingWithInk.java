@@ -10,6 +10,7 @@ public class PagesNumberingWithInk {
         int i = current;
         while (numberOfDigits > 0) {
             int digiCount = getDigiCount(i);
+            System.out.println("digiCount:"+digiCount);
             if (digiCount == numberOfDigits)
                 return i;
             else if (digiCount > numberOfDigits)
