@@ -7,7 +7,7 @@ import java.util.Map;
 public class IsSubstitutionCipher {
     public static void main(String[] args) {
         IsSubstitutionCipher s = new IsSubstitutionCipher();
-        System.out.println(s.solution("aab", "bbb"));
+        System.out.println(s.solution("aab", "bbc"));
     }
 
     boolean solution(String str1, String str2) {
