@@ -1,6 +1,10 @@
 package codesignal.codearcade.core;
 
 public class ComfortableNumbers {
+    public static void main(String[] args) {
+        ComfortableNumbers c = new ComfortableNumbers();
+        System.out.println(c.solution(10,12));
+    }
     int digitSum(int n) {
         int sum = 0;
 

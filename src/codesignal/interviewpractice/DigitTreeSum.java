@@ -2,6 +2,7 @@ package codesignal.interviewpractice;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 public class DigitTreeSum {
     long solution(Tree<Integer> t) {
@@ -47,5 +48,45 @@ public class DigitTreeSum {
 
         digitTreeSumHelper(t.left, parent * 10 + t.value, result);
         digitTreeSumHelper(t.right, parent * 10 + t.value, result);
+    }
+
+    long solution3(Tree<Integer> t) {
+        long ans = 0;
+
+        if (t == null) {
+            return 0;
+        }
+
+        Queue<Pair> q = new LinkedList<>();
+        q.add(new Pair(t, 0));
+
+        while (!q.isEmpty()) {
+            Pair p = q.remove();
+            long x = p.num * 10 + p.x.value;
+
+            if (p.x.left == null && p.x.right == null) {
+                ans += x;
+            }
+
+            if (p.x.left != null) {
+                q.add(new Pair(p.x.left, x));
+            }
+
+            if (p.x.right != null) {
+                q.add(new Pair(p.x.right, x));
+            }
+        }
+
+        return ans;
+    }
+
+    static class Pair {
+        Tree<Integer> x;
+        long num;
+
+        Pair(Tree<Integer> x, long num) {
+            this.x = x;
+            this.num = num;
+        }
     }
 }
