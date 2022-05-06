@@ -13,18 +13,21 @@ public class RotateImage {
 
     int[][] solution(int[][] a) {
 
-        int len = a.length;
-        int[][] result = new int[len][len];
-        for (int i = 0; i < len; i++) {
-            for (int j = 0; j < len; j++) {
-                //1. vertical reading
-                int verticalValue = a[j][i];
-                //2. write horizontally
-                result[i][(len - 1) - j] = verticalValue;
+        int n = a.length;
+        for (int i = 0; i < n / 2; i++) {
+            for (int j = i; j < n - i - 1; j++) {
+                int temp = a[i][j];
+
+                //1.(current,current) <= (left, bottom)
+                a[i][j] = a[n - j - 1][i];
+                //2.(left,bottom) <= (right,bottom)
+                a[n - j - 1][i] = a[n - 1 - i][n - 1 - j];
+                //3.(right,bottom) <= (top,right)
+                a[n - 1 - i][n - 1 - j] = a[j][n - 1 - i];
+                //4.(top,right) <= (current,current)
+                a[j][n - 1 - i] = temp;
             }
         }
-
-        return result;
+        return a;
     }
-
 }
