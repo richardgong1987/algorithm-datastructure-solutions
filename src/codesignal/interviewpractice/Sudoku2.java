@@ -37,7 +37,6 @@ public class Sudoku2 {
                     return false;
                 }
             }
-
         }
 
         return true;
