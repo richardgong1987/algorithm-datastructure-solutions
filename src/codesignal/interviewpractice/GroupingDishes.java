@@ -6,48 +6,45 @@ import java.util.stream.Stream;
 
 public class GroupingDishes {
 
+    public static void main(String[] args) {
+        GroupingDishes s = new GroupingDishes();
+        System.out.println(s.solution(new String[][]{{"Salad", "Tomato", "Cucumber", "Salad", "Sauce"}, {"Pizza", "Tomato", "Sausage", "Sauce", "Dough"}, {"Quesadilla", "Chicken", "Cheese", "Sauce"}, {"Sandwich", "Salad", "Bread", "Tomato", "Cheese"}}));
+    }
 
     String[][] solution(String[][] dishes) {
         HashMap<String, ArrayList<String>> map = new HashMap<>();
         for (String[] ingred : dishes) {
             for (int i = 1; i < ingred.length; i++) {
-                if (map.containsKey(ingred[i])) {
-                    ArrayList<String> foods = map.get(ingred[i]);
-                    foods.add(ingred[0]);
-                    map.put(ingred[i], foods);
-                } else {
-                    ArrayList<String> foods = new ArrayList<>();
-                    foods.add(ingred[0]);
-                    map.put(ingred[i], foods);
-                }
+                map.computeIfAbsent(ingred[i], v -> new ArrayList<>()).add(ingred[0]);
             }
         }
 
         ArrayList<String[]> list = new ArrayList<>();
-        for (String ingred : map.keySet()) {
-            ArrayList<String> foods = map.get(ingred);
+        map.forEach((ingred, foods) -> {
             if (foods.size() > 1) {
                 Collections.sort(foods);
                 String[] fin = new String[foods.size() + 1];
                 fin[0] = ingred;
-                for (int i = 0; i < foods.size(); i++)
+                for (int i = 0; i < foods.size(); i++) {
                     fin[i + 1] = foods.get(i);
+                }
                 list.add(fin);
             }
-        }
+        });
+        list.sort((a, b) -> {
+            return a[0].compareTo(b[0]);
+        });
+        /**
 
+           list.sort((a, b) -> {
+            return a[0].compareTo(b[0]);
+         });
 
+         */
         list.sort(Comparator.comparing(a -> a[0]));
-        return list.toArray(new String[0][]);
+        return list.toArray(new String[0][0]);
     }
 
-    String[][] solution2(String[][] dishes) {
-        return Arrays.stream(dishes).
-                flatMap(d -> Arrays.stream(d).skip(1).
-                        map(i -> new AbstractMap.SimpleEntry(i, d[0]))).
-                collect(Collectors.groupingBy(Map.Entry::getKey, TreeMap::new, Collectors.mapping(Map.Entry::getValue, Collectors.toList()))).entrySet().stream().filter(e -> e.getValue().size() > 1)
-                .map(e -> Stream.concat(Stream.of(e.getKey()), e.getValue().stream().sorted()).toArray(String[]::new)).toArray(String[][]::new);
-    }
 
     String[][] solution3(String[][] dishes) {
         final Map<String, Set<String>> map = new TreeMap<>();
