@@ -31,9 +31,6 @@ public class GroupingDishes {
                 list.add(fin);
             }
         });
-        list.sort((a, b) -> {
-            return a[0].compareTo(b[0]);
-        });
         /**
 
            list.sort((a, b) -> {
