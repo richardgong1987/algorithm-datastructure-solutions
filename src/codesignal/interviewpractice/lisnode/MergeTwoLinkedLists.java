@@ -1,7 +1,5 @@
 package codesignal.interviewpractice.lisnode;
 
-import codesignal.interviewpractice.ListNode;
-
 public class MergeTwoLinkedLists {
     ListNode<Integer> solution2(ListNode<Integer> l1, ListNode<Integer> l2) {
         if (l1 == null) return l2;

@@ -1,5 +1,7 @@
 package codesignal.interviewpractice;
 
+import codesignal.interviewpractice.lisnode.ListNode;
+
 import java.util.*;
 
 public class AddTwoHugeNumbers {

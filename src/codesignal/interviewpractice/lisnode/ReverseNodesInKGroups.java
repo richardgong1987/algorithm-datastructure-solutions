@@ -1,4 +1,4 @@
-package codesignal.interviewpractice;
+package codesignal.interviewpractice.lisnode;
 
 import java.util.Deque;
 import java.util.LinkedList;

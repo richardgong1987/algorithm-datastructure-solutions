@@ -1,7 +1,5 @@
 package codesignal.interviewpractice.lisnode;
 
-import codesignal.interviewpractice.ListNode;
-
 public class RemoveKFromList {
     public static void main(String[] args) {
         ListNode<Integer> node = ListNode.getNode(new Integer[]{123, 456, 789, 0});

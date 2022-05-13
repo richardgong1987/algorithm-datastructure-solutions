@@ -1,4 +1,4 @@
-package codesignal.interviewpractice;
+package codesignal.interviewpractice.lisnode;
 
 
 public class RearrangeLastN {
