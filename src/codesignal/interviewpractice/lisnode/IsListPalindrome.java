@@ -1,5 +1,6 @@
 package codesignal.interviewpractice.lisnode;
 
+
 import codesignal.interviewpractice.ListNode;
 
 import java.util.Deque;

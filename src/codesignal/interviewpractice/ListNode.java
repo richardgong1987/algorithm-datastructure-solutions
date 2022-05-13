@@ -21,6 +21,6 @@ public class ListNode<T> {
         value = x;
     }
 
-    T value;
-    ListNode<T> next;
+    public T value;
+    public ListNode<T> next;
 }
