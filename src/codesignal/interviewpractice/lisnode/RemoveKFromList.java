@@ -1,4 +1,6 @@
-package codesignal.interviewpractice;
+package codesignal.interviewpractice.lisnode;
+
+import codesignal.interviewpractice.ListNode;
 
 public class RemoveKFromList {
     public static void main(String[] args) {

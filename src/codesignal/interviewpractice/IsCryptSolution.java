@@ -1,7 +1,8 @@
 package codesignal.interviewpractice;
 
-import java.nio.charset.StandardCharsets;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class IsCryptSolution {
     public static void main(String[] args) {

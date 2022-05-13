@@ -1,5 +1,6 @@
 package codesignal.interviewpractice;
 
+
 public class RearrangeLastN {
     public static void main(String[] args) {
         RearrangeLastN s = new RearrangeLastN();
