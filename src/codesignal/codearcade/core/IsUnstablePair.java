@@ -1,8 +1,5 @@
 package codesignal.codearcade.core;
 
-import java.lang.reflect.Array;
-import java.util.Arrays;
-
 public class IsUnstablePair {
     public static void main(String[] args) {
         IsUnstablePair isUnstablePair = new IsUnstablePair();

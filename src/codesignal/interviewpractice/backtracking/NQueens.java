@@ -1,66 +1,47 @@
 package codesignal.interviewpractice.backtracking;
 
-import java.util.Arrays;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 public class NQueens {
-    List<List<String>> res = new LinkedList<>();
-    public List<List<String>> solution(int n) {
-        char[][] board = buildBoard(n);
-        backtrack(board, 0);
-        return res;
-    }
-
-    private char[][] buildBoard(int n) {
-        char[][] board = new char[n][n];
-        for (char[] c : board) {
-            Arrays.fill(c, '.');
-        }
-        return board;
-    }
-
-    private void backtrack(char[][] board, int r) {
-        if (r == board.length) {
-            res.add(charToList(board));
-            return;
-        }
-        int n = board[r].length;
-        for (int c = 0; c < n; c++) {
-            if (!isValid(board, r, c)) {
-                continue;
+    int[][] solution(int n) {
+        List<List<Integer>> pos = new ArrayList<>();
+        calcPos(pos, new ArrayList<>(), 0, n);
+        int[][] result = new int[pos.size()][];
+        for (int i = 0; i < pos.size(); ++i) {
+            int[] r = new int[pos.get(i).size()];
+            for (int j = 0; j < pos.get(i).size(); ++j) {
+                r[j] = pos.get(i).get(j) + 1;
             }
-            // 进入选择
-            board[r][c] = 'Q';
-            backtrack(board, r + 1);
-            // 撤销选择
-            board[r][c] = '.';
-        }
-    }
-
-    private List<String> charToList(char[][] board) {
-        List<String> result = new LinkedList<>();
-        for (char[] c : board) {
-            result.add(String.copyValueOf(c));
+            result[i] = r;
         }
         return result;
     }
 
-    private boolean isValid(char[][] board, int r, int c) {
-        int n = board.length;
-        for (int i = 0; i < n; i++) {
-            if (board[i][c] == 'Q')
-                return false;
+    private void calcPos(List<List<Integer>> pos, List<Integer> current, int index, int n) {
+        if (current.size() == n) {
+            pos.add(current);
+            return;
         }
-        for (int i = r - 1, j = c - 1; i >= 0 && j >= 0; i--, j--) {
-            if (board[i][j] == 'Q')
-                return false;
+        for (int i = 0; i < n; ++i) {
+            if (ok(current, i)) {
+                List<Integer> newList = new ArrayList<>(current);
+                newList.add(i);
+                calcPos(pos, newList, index + 1, n);
+            }
         }
-        for (int i = r - 1, j = c + 1; i >= 0 && j < n; i--, j++) {
-            if (board[i][j] == 'Q')
+    }
+
+    private boolean ok(List<Integer> list, int index) {
+        for (int i = 0; i < list.size(); ++i) {
+            int y = list.get(i);
+            if (y == index) {
                 return false;
+            }
+            if (Math.abs(y - index) == Math.abs(i - list.size())) {
+                return false;
+            }
         }
         return true;
     }
-
 }

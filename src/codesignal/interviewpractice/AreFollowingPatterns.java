@@ -1,6 +1,6 @@
 package codesignal.interviewpractice;
 
-import java.util.*;
+import java.util.LinkedHashMap;
 
 public class AreFollowingPatterns {
     public static void main(String[] args) {

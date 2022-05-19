@@ -2,7 +2,8 @@ package codesignal.interviewpractice;
 
 import codesignal.interviewpractice.lisnode.ListNode;
 
-import java.util.*;
+import java.util.Deque;
+import java.util.LinkedList;
 
 public class AddTwoHugeNumbers {
     public static void main(String[] args) {

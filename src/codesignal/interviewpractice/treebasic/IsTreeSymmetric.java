@@ -2,7 +2,8 @@ package codesignal.interviewpractice.treebasic;
 
 import codesignal.interviewpractice.Tree;
 
-import java.util.*;
+import java.util.Deque;
+import java.util.LinkedList;
 
 public class IsTreeSymmetric {
     boolean solution(Tree<Integer> t) {

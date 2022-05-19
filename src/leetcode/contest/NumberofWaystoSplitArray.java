@@ -1,7 +1,6 @@
 package leetcode.contest;
 
 import java.util.Arrays;
-import java.util.stream.IntStream;
 
 public class NumberofWaystoSplitArray {
     public static void main(String[] args) {

@@ -1,8 +1,6 @@
 package codesignal.interviewpractice;
 
 import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class GroupingDishes {
 

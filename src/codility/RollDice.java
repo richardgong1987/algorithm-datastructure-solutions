@@ -1,6 +1,6 @@
 package codility;
 
-import java.util.*;
+import java.util.Arrays;
 
 public class RollDice {
     public static void main(String[] args) {

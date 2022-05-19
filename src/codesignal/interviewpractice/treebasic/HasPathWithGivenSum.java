@@ -4,7 +4,6 @@ import codesignal.interviewpractice.Tree;
 
 import java.util.Deque;
 import java.util.LinkedList;
-import java.util.Queue;
 
 public class HasPathWithGivenSum {
     public static void main(String[] args) {

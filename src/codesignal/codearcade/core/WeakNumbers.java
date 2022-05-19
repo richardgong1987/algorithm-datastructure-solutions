@@ -3,7 +3,6 @@ package codesignal.codearcade.core;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.stream.Collectors;
 
 public class WeakNumbers {
     public static void main(String[] args) {
