@@ -1,12 +1,13 @@
 package PermutationCombinationAlgorithm;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
 public class Permute {
     public static void main(String[] args) {
         Permute permute = new Permute();
-        List<List<Integer>> lists = permute.permute(new int[]{1, 2, 3});
+        List<List<Integer>> lists = permute.permute(new int[]{1, 2, 3, 4, 5});
         for (List<Integer> list : lists) {
             System.out.println(list);
         }
@@ -35,7 +36,7 @@ public class Permute {
             return;
         }
 
-        for (int i = 0; i < chooses.length;/** 选择列表 */ i++) {
+        for (int i = 0; i < chooses.length;/** 选择列表 */i++) {
             // 排除不合法的选择
             if (visited[i]) {
                 // chooses[i] 已经在 path 中，跳过
@@ -44,11 +45,13 @@ public class Permute {
             // 做选择
             path.add(chooses[i]);
             visited[i] = true;
+            System.out.println("--".repeat(i + 2) + ":" + i + Arrays.toString(visited) + path);
             // 进入下一层决策树
             backtrack(chooses, path, visited);
             // 取消选择
             path.removeLast();
             visited[i] = false;
+            System.out.println("**".repeat(i + 2) + ":" + i + Arrays.toString(visited) + path);
         }
     }
 
