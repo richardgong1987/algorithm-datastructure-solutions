@@ -7,31 +7,32 @@ public class FindProfession {
     }
 
     /**
-     * Level 1: E
-     * Level 2: ED
-     * Level 3: EDDE
-     * Level 4: EDDEDEED
-     * Level 5: EDDEDEEDDEEDEDDE
      * https://www.geeksforgeeks.org/find-profession-in-a-hypothetical-special-situation/
      */
     String solution(int level, int pos) {
-        // Count set bits in 'pos-1'
-        int c = countSetBits(pos - 1);
 
-        // If set bit count is odd, then doctor, else engineer
-        if (c % 2 != 0) {
-            return "Doctor";
+        // Base case
+        if (level == 1) {
+            return "Engineer";
         }
-        return "Engineer";
-    }
 
 
-    int countSetBits(int n) {
-        int count = 0;
-        while (n != 0) {
-            n &= (n - 1);
-            count++;
+        // Recursively find parent"s
+        // profession. If parent
+        // is a Doctor, this node
+        // will be a Doctor if it
+        // is at odd position and an
+        // engineer if at even position
+        if (solution(level - 1, (pos + 1) / 2).equals("Doctor")) {
+            return (pos % 2 == 0) ? "Engineer" : "Doctor";
         }
-        return count;
+
+
+        // If parent is an engineer,
+        // then current node will be
+        // an engineer if at add
+        // position and doctor if even
+        // position.
+        return (pos % 2 == 0) ? "Doctor" : "Engineer";
     }
 }
