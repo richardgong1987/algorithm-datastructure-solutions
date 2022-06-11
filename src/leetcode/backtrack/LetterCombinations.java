@@ -7,18 +7,8 @@ import java.util.List;
 import java.util.Map;
 
 public class LetterCombinations {
-    public static void DFS(String digits, List<String> result, StringBuilder s, int start, Map<Integer, String> map) {
-        if (start == digits.length()) {
-            result.add(s.toString());
-            return;
-        }
-
-        String tmp = map.get(digits.charAt(start) - '0');
-        for (int i = 2; i < tmp.length(); i++) {
-            s.append(tmp.charAt(i));
-            DFS(digits, result, s, start + 1, map);
-            s.deleteCharAt(s.length() - 1);
-        }
+    public static void main(String[] args) {
+        letterCombinations("23");
     }
 
     public static List<String> letterCombinations(String digits) {
@@ -39,8 +29,22 @@ public class LetterCombinations {
         map.put(9, "wxyz");
 
         List<String> result = new ArrayList<>();
-        var s = new StringBuilder();
-        DFS(digits, result, s, 0, map);
+        DFS(digits, result, new StringBuilder(), 0, map);
         return result;
     }
+
+    public static void DFS(String digits, List<String> result, StringBuilder s, int start, Map<Integer, String> map) {
+        if (start == digits.length()) {
+            result.add(s.toString());
+            return;
+        }
+
+        String tmp = map.get(digits.charAt(start) - '0');
+        for (int i = 0; i < tmp.length(); i++) {
+            s.append(tmp.charAt(i));
+            DFS(digits, result, s, start + 1, map);
+            s.deleteCharAt(s.length() - 1);
+        }
+    }
+
 }
