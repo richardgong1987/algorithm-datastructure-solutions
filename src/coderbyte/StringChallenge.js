@@ -1,3 +1,6 @@
+/**
+ * https://stackoverflow.com/questions/62462345/how-to-check-if-dom-elements-are-correctly-nested
+ */
 function StringChallenge(str) {
     let tagStart = str.match(/<\w+>/g);
     let tagEnd = str.match(/(<\/\w+>)/g);

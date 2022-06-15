@@ -1,3 +1,5 @@
+// https://coderbyte.com/algorithm/stock-maximum-profit
+
 function ArrayChallenge(arr) {
 
     var maxProfit = -1;
