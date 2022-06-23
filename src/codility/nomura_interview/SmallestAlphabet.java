@@ -1,4 +1,4 @@
-package codility.strings;
+package codility.nomura_interview;
 /*
 https://www.geeksforgeeks.org/lexicographically-smallest-string-formed-by-removing-at-most-one-character/
  */
