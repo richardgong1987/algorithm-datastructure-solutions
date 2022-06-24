@@ -1,4 +1,4 @@
-package codility;
+package codility.nomura_interview;
 
 /**
  * https://algo.monster/problems/max_network_rank

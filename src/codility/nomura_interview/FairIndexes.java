@@ -1,4 +1,4 @@
-package codility;
+package codility.nomura_interview;
 
 import java.util.Arrays;
 
