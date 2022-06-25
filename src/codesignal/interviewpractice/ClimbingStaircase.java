@@ -17,28 +17,25 @@ public class ClimbingStaircase {
             return L;
         }
 
-        climb(L, null, n, k);
+        climb(L, new ArrayList<>(), n, k);
 
         return L;
     }
 
     void climb(List<List<Integer>> L, List<Integer> M, int n, int k) {
         if (n < 0) return;
-
+        // obtain result
         if (n == 0) {
-            L.add(M);
+            L.add(new ArrayList<>(M));
             return; // stop
         }
 
         for (int i = 1; i <= k; i++) {
-            if (n - i < 0) {
-                break;
-            }
-
-
-            List<Integer> P = M == null ? new ArrayList<>() : new ArrayList<>(M);
-            P.add(i);
-            climb(L, P, n - i, k);
+            // select
+            M.add(i);
+            climb(L, M, n - i, k);
+            // deselect
+            M.remove(M.size() - 1);
         }
     }
 }
