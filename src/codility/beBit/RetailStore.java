@@ -4,8 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * ![](./img.png)
- *
+ *  https://stackoverflow.com/questions/69075779/count-nodes-within-k-distance-of-marked-nodes-in-grid
  */
 public class RetailStore {
     public int solution(int k, int[][] A) {
